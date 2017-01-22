@@ -15,7 +15,6 @@ describe("recordStore_constructor", function(){
 
   it("should have a name",function(){
     assert.equal("Cami's Classics", recordStore.name)
-    console.log(recordStore.balance)
   });
 
   it("should have a city", function(){
@@ -35,7 +34,6 @@ describe("recordStore_constructor", function(){
   it("should be able to list inventory", function(){
     recordStore.addRecord(record);
     recordStore.addRecord(record2);
-    console.log(recordStore.balance)
     assert.deepEqual([record,record2], recordStore.listInventory())
   });
 
@@ -43,10 +41,21 @@ describe("recordStore_constructor", function(){
     recordStore.addRecord(record);
     recordStore.addRecord(record2);
     recordStore.sellRecord(record);
-    console.log(recordStore.balance)
+    
     assert.equal(110.00,recordStore.balance);
     assert.equal(1,recordStore.inventory.length)
+  });
 
+  it("should be able to get inventory value", function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    assert.equal(15, recordStore.getInventoryValue());
+  })
+
+  it("should be able to return financial information of store", function(){
+    recordStore.addRecord(record);
+    recordStore.addRecord(record2);
+    assert.equal("total value of stock: 15, Store Balance: 100, Total business value: 115", recordStore.getAllFinances())
   })
 
 });
