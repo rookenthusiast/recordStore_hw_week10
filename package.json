@@ -1,0 +1,14 @@
+{
+  "name": "exit",
+  "version": "1.0.0",
+  "main": "record_constructor.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
